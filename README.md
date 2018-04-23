@@ -19,10 +19,10 @@ The below will regenerate/update the ORCID Java API stored in the `src/main/java
   _Be sure not to overwrite the `.gitignore` already in the "empty" `xsd` folder, as we do NOT want to keep the XSDs in this repo!_
    ```
    # Copy over common_2.1 XSDs
-   cp -r -n [ORCID-Source]/orcid-model/src/main/resources/common_2.1/* [orcid-jaxb-api]/src/main/resources/xsd/
+   cp -r [ORCID-Source]/orcid-model/src/main/resources/common_2.1 [orcid-jaxb-api]/src/main/resources/xsd/
    
    # Copy over record_2.1 XSDs
-   cp -r -n [ORCID-Source]/orcid-model/src/main/resources/record_2.1/* [orcid-jaxb-api]/src/main/resources/xsd/
+   cp -r [ORCID-Source]/orcid-model/src/main/resources/record_2.1 [orcid-jaxb-api]/src/main/resources/xsd/
    ```
 4. Build project (with profile `generate-sources-from-jaxb` enabled)
    ```
