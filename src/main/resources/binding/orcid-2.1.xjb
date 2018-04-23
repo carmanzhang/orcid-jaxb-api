@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+	jaxb:version="2.1">
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/activities-2.1.xsd" node="/xs:schema">
+		<jaxb:globalBindings>
+			<jaxb:serializable uid="1" />
+		</jaxb:globalBindings>
+
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.activities" />
+		</jaxb:schemaBindings>
+		<jaxb:bindings node="//xs:complexType[@name='educations']">
+			<jaxb:property name="educations-ctype" />
+			<jaxb:class name="EducationsType" />
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='employments']">
+			<jaxb:property name="employments-ctype" />
+			<jaxb:class name="EmploymentsType" />
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='works']">
+			<jaxb:property name="works-ctype" />
+			<jaxb:class name="WorksType" />
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='peer-reviews']">
+			<jaxb:property name="peer-reviews-ctype" />
+			<jaxb:class name="PeerReviewsType" />
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='fundings']">
+			<jaxb:property name="fundings-ctype" />
+			<jaxb:class name="FundingsType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/common_2.1/common-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.common" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='client-id']/xs:sequence/xs:choice/xs:sequence/xs:element[@name='path']">
+			<jaxb:property name="uri-path" />
+		</jaxb:bindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='orcid-id']/xs:sequence/xs:choice/xs:sequence/xs:element[@name='path']">
+			<jaxb:property name="uri-path" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/address-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.address" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='address']">
+			<jaxb:property name="address-ctype" />
+			<jaxb:class name="AddressType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/education-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.education" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/email-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.email" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='email']">
+			<jaxb:property name="email-ctype" />
+			<jaxb:class name="EmailType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/employment-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.employment" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/error-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.error" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/funding-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.funding" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:element[@name='funding-summary']">
+			<jaxb:property name="funding-summary" />
+			<jaxb:class name="FundingSummary" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/keyword-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.keyword" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='keyword']">
+			<jaxb:property name="keyword-ctype" />
+			<jaxb:class name="KeywordType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/other-name-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.othername" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='other-name']">
+			<jaxb:property name="other-name-ctype" />
+			<jaxb:class name="OtherNameType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/peer-review-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.peerreview" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:element[@name='peer-review-summary']">
+			<jaxb:property name="peer-review-summary" />
+			<jaxb:class name="PeerReviewSummary" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/person-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.person" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/person-external-identifier-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.person.externalidentifier" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/personal-details-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.personaldetails" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='name']">
+			<jaxb:property name="name-ctype" />
+			<jaxb:class name="NameType" />
+		</jaxb:bindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='biography']">
+			<jaxb:property name="biography-ctype" />
+			<jaxb:class name="BiographyType" />
+		</jaxb:bindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='credit-name']">
+			<jaxb:property name="credit-name-ctype" />
+			<jaxb:class name="CreditNameType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/researcher-url-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.researcherurl" />
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:complexType[@name='researcher-url']">
+			<jaxb:property name="researcher-url-ctype" />
+			<jaxb:class name="ResearcherUrlType" />
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/work-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.work" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="../xsd/record_2.1/bulk-2.1.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.orcid.jaxb.bulk" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+</jaxb:bindings>

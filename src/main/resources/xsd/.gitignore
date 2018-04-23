@@ -1,0 +1,5 @@
+# Ignore anything under src/main/resources/xsd/ as this content is (manually) copied over from
+# the ORCID source repo.  See README for more detail.
+*
+*/
+!.gitignore
