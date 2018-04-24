@@ -93,41 +93,70 @@
                 </plugins>
             </build>
         </profile>
+
+        <!--
+         The 'release' profile is used by the 'maven-release-plugin' (see below)
+         to actually perform a DSpace software release to Maven central.
+         This profile contains settings which are ONLY enabled when performing
+         a DSpace release. See also https://wiki.duraspace.org/display/DSPACE/Release+Procedure
+        -->
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- Configure Nexus plugin for new releases via Sonatype.
+                       See: http://central.sonatype.org/pages/apache-maven.html -->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <!-- In your settings.xml, your username/password
+                                 MUST be specified for server 'ossrh' -->
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <!-- Require manual verification / release to Maven Central -->
+                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <!-- Sign any new releases via GPG.
+                         NOTE: you may optionall specify the "gpg.passphrase" in your settings.xml -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <build>
         <plugins>
-         <!-- Configure Nexus plugin for new releases via Sonatype.
-            See: http://central.sonatype.org/pages/apache-maven.html -->
+            <!-- Specify our settings for new releases via 'mvn release:*' -->
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
                 <configuration>
-                    <!-- In your settings.xml, your username/password
-                         MUST be specified for server 'ossrh' -->
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <!-- Require manual verification / release to Maven Central -->
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <!-- During release:perform, enable the "release" profile (see above) -->
+                    <releaseProfiles>release</releaseProfiles>
+                     <goals>deploy</goals>
+                     <!-- Suggest tagging the release in SCM as "dspace-[version]" -->
+                     <tagNameFormat>orcid-jaxb-api-@{project.version}</tagNameFormat>
                 </configuration>
-            </plugin>
-            <!-- Sign any new releases via GPG.
-                 NOTE: you may optionall specify the "gpg.passphrase" in your settings.xml -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
