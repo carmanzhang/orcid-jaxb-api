@@ -4,7 +4,7 @@
 
     <groupId>org.dspace</groupId>
     <artifactId>orcid-jaxb-api</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1-SNAPSHOT</version>
 
     <name>ORCID Java API generated via JAXB</name>
     <description>
@@ -183,7 +183,7 @@
         <connection>scm:git:git@github.com:DSpace/orcid-jaxb-api.git</connection>
         <developerConnection>scm:git:git@github.com:DSpace/orcid-jaxb-api.git</developerConnection>
         <url>git@github.com:DSpace/orcid-jaxb-api.git</url>
-        <tag>orcid-jaxb-api-2.1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <!-- Configure our release repositories to use Sonatype.
