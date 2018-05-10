@@ -123,6 +123,24 @@
                             <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
+                    <!-- For new releases, generate JavaDocs -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.3</version>
+                        <configuration>
+                            <!-- Never fail a build based on Javadoc errors -->
+                            <failOnError>false</failOnError>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <configuration>
+                                    <additionalparam>${javadoc.opts}</additionalparam>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <!-- Sign any new releases via GPG.
                          NOTE: you may optionall specify the "gpg.passphrase" in your settings.xml -->
                     <plugin>
@@ -142,6 +160,25 @@
                 </plugins>
             </build>
         </profile>
+
+        <!--
+            If building with Java 8 (JDK 1.8), then disable the default 'doclint' validation.
+            'doclint' validates all Javadoc comments (see http://openjdk.java.net/jeps/172).
+            Unfortunately though, it also causes our release process to fail with Java 8,
+            as JAXB doesn't seem to always generate all Javadoc comments.
+            So, for now, we are disabling this check.
+        -->
+        <profile>
+            <id>doclint-java8-disable</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <!-- Note: ${javadoc.opts} is passed to maven-javadoc-plugin in the 'release' profile -->
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
+        </profile>
+
     </profiles>
 
     <build>
