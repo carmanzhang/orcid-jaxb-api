@@ -207,6 +207,27 @@
         </dependency>
     </dependencies>
 
+    <developers>
+        <!-- ORCID created initial XSDs -->
+        <developer>
+           <name>ORCID</name>
+           <email>support@orcid.org</email>
+           <url>https://github.com/ORCID/ORCID-Source</url>
+           <roles>
+             <role>developer</role>
+           </roles>
+        </developer>
+        <!-- DSpace Committers simply created JAXB configs -->
+        <developer>
+           <name>DSpace Committers</name>
+           <email>dspace-devel@googlegroups.com</email>
+           <url>https://wiki.duraspace.org/display/DSPACE/DSpace+Committers</url>
+           <roles>
+             <role>developer</role>
+           </roles>
+        </developer>
+    </developers>
+
     <!-- ORCID XSDs are released under MIT License. This source is generated from them, so we inherit license -->
     <licenses>
         <license>
