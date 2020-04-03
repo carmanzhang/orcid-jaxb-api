@@ -4,7 +4,7 @@
 
     <groupId>org.dspace</groupId>
     <artifactId>orcid-jaxb-api</artifactId>
-    <version>2.1.1-SNAPSHOT</version>
+    <version>3.0.0</version>
 
     <name>ORCID Java API generated via JAXB</name>
     <description>
@@ -42,7 +42,7 @@
                             <!-- Generate a file header with timestamp -->
                             <noFileHeader>false</noFileHeader>
                             <!-- Delete generateDirectory before recreating -->
-                            <removeOldOutput>true</removeOldOutput>
+                            <removeOldOutput>false</removeOldOutput>
                             <!-- Add @Generated annotation to all generated source code -->
                             <markGenerated>true</markGenerated>
                             <!-- NOTE that we are generating directly into Java Source Directory! -->
@@ -53,8 +53,8 @@
                             <schemaDirectory>${basedir}/src/main/resources/xsd</schemaDirectory>
                             <!-- The entire list of XSDs we want to use to generate Java source code -->
                             <schemaIncludes>
-                                <include>common_2.1/*.xsd</include>
-                                <include>record_2.1/*.xsd</include>
+                                <include>common_3.0/*.xsd</include>
+                                <include>record_3.0/*.xsd</include>
                             </schemaIncludes>
                             <episode>false</episode>
                             <args>
