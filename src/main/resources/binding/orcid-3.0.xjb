@@ -12,7 +12,7 @@
 <jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
 	xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
-	jaxb:version="2.1">
+	jaxb:version="2.1" jaxb:extensionBindingPrefixes="xjc">
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/activities-3.0.xsd" node="/xs:schema">
 		<jaxb:globalBindings>
@@ -101,6 +101,13 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+                <jaxb:bindings node="//xs:element[@name='education']">
+                        <jaxb:class name="Education" />
+                </jaxb:bindings>
+                <jaxb:bindings node="//xs:element[@name='education-summary']">
+                        <jaxb:class name="EducationSummary" />
+                </jaxb:bindings>
+
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/email-3.0.xsd" node="/xs:schema">
@@ -118,6 +125,14 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xs:element[@name='employment']">
+                        <jaxb:class name="Employment" />
+                </jaxb:bindings>
+                <jaxb:bindings node="//xs:element[@name='employment-summary']">
+                        <jaxb:class name="EmploymentSummary" />
+                </jaxb:bindings>
+
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/error-3.0.xsd" node="/xs:schema">
