@@ -10,9 +10,9 @@
 -->
 
 <jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:annox="http://annox.dev.java.net"
 	xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
-	jaxb:version="2.1" jaxb:extensionBindingPrefixes="xjc">
+	jaxb:version="2.1" jaxb:extensionBindingPrefixes="xjc annox">
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/activities-3.0.xsd" node="/xs:schema">
 		<jaxb:globalBindings>
@@ -102,12 +102,13 @@
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
                 <jaxb:bindings node="//xs:element[@name='education']">
-                        <jaxb:class name="Education" />
+						<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="Education")</annox:annotate>
+                        <jaxb:class name="Education"/>
                 </jaxb:bindings>
                 <jaxb:bindings node="//xs:element[@name='education-summary']">
+                		<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="EducationSummary")</annox:annotate>
                         <jaxb:class name="EducationSummary" />
                 </jaxb:bindings>
-
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/email-3.0.xsd" node="/xs:schema">
@@ -127,9 +128,11 @@
 		</jaxb:schemaBindings>
 
 		<jaxb:bindings node="//xs:element[@name='employment']">
+						<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="Employment")</annox:annotate>
                         <jaxb:class name="Employment" />
                 </jaxb:bindings>
                 <jaxb:bindings node="//xs:element[@name='employment-summary']">
+                		<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="EmploymentSummary")</annox:annotate>
                         <jaxb:class name="EmploymentSummary" />
                 </jaxb:bindings>
 
@@ -246,6 +249,17 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+		<jaxb:bindings node="//xs:element[@name='distinction']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="Distinction")
+			</annox:annotate>
+			<jaxb:class name="Distinction" />
+		</jaxb:bindings>
+		<jaxb:bindings
+			node="//xs:element[@name='distinction-summary']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="DistinctionSummary")
+			</annox:annotate>
+			<jaxb:class name="DistinctionSummary" />
+		</jaxb:bindings>
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/invited-position-3.0.xsd" node="/xs:schema">
@@ -264,6 +278,14 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+                <jaxb:bindings node="//xs:element[@name='qualification']">
+						<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="Qualification")</annox:annotate>
+                        <jaxb:class name="Qualification"/>
+                </jaxb:bindings>
+                <jaxb:bindings node="//xs:element[@name='qualification-summary']">
+                		<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="QualificationSummary")</annox:annotate>
+                        <jaxb:class name="QualificationSummary" />
+                </jaxb:bindings>
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/service-3.0.xsd" node="/xs:schema">
