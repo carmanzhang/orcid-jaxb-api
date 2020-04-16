@@ -13,18 +13,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.namespace.QName;
 import org.orcid.jaxb.model.common_v3.AffiliationSummary;
 
-@XmlRootElement(name = "EducationSummary")
-public class EducationSummary
+@XmlRootElement(name = "DistinctionSummary")
+public class DistinctionSummary
     extends JAXBElement<AffiliationSummary>
 {
 
-    protected final static QName NAME = new QName("http://www.orcid.org/ns/education", "education-summary");
+    protected final static QName NAME = new QName("http://www.orcid.org/ns/distinction", "distinction-summary");
 
-    public EducationSummary(AffiliationSummary value) {
+    public DistinctionSummary(AffiliationSummary value) {
         super(NAME, ((Class) AffiliationSummary.class), null, value);
     }
 
-    public EducationSummary() {
+    public DistinctionSummary() {
         super(NAME, ((Class) AffiliationSummary.class), null, null);
     }
 
