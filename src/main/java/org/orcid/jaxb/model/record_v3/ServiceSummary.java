@@ -11,21 +11,21 @@ package org.orcid.jaxb.model.record_v3;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.namespace.QName;
-import org.orcid.jaxb.model.common_v3.Affiliation;
+import org.orcid.jaxb.model.common_v3.AffiliationSummary;
 
-@XmlRootElement(name = "Education")
-public class Education
-    extends JAXBElement<Affiliation>
+@XmlRootElement(name = "ServiceSummary")
+public class ServiceSummary
+    extends JAXBElement<AffiliationSummary>
 {
 
-    protected final static QName NAME = new QName("http://www.orcid.org/ns/education", "education");
+    protected final static QName NAME = new QName("http://www.orcid.org/ns/service", "service-summary");
 
-    public Education(Affiliation value) {
-        super(NAME, ((Class) Affiliation.class), null, value);
+    public ServiceSummary(AffiliationSummary value) {
+        super(NAME, ((Class) AffiliationSummary.class), null, value);
     }
 
-    public Education() {
-        super(NAME, ((Class) Affiliation.class), null, null);
+    public ServiceSummary() {
+        super(NAME, ((Class) AffiliationSummary.class), null, null);
     }
 
 }

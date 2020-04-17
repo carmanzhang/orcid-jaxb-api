@@ -266,12 +266,31 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+		<jaxb:bindings node="//xs:element[@name='invited-position']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="InvitedPosition")
+			</annox:annotate>
+			<jaxb:class name="InvitedPosition" />
+		</jaxb:bindings>
+		<jaxb:bindings
+			node="//xs:element[@name='invited-position-summary']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="InvitedPositionSummary")
+			</annox:annotate>
+			<jaxb:class name="InvitedPositionSummary" />
+		</jaxb:bindings>
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/membership-3.0.xsd" node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+		<jaxb:bindings node="//xs:element[@name='membership']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="Membership")</annox:annotate>
+			<jaxb:class name="Membership"/>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:element[@name='membership-summary']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="MembershipSummary")</annox:annotate>
+			<jaxb:class name="MembershipSummary" />
+		</jaxb:bindings>
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/qualification-3.0.xsd" node="/xs:schema">
@@ -292,6 +311,14 @@
 		<jaxb:schemaBindings>
 			<jaxb:package name="org.orcid.jaxb.model.record_v3" />
 		</jaxb:schemaBindings>
+		<jaxb:bindings node="//xs:element[@name='service']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="Service")</annox:annotate>
+			<jaxb:class name="Service"/>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:element[@name='service-summary']">
+			<annox:annotate target="element">@javax.xml.bind.annotation.XmlRootElement(name="ServiceSummary")</annox:annotate>
+			<jaxb:class name="ServiceSummary" />
+		</jaxb:bindings>
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/person-3.0.xsd" node="/xs:schema">
