@@ -84,6 +84,28 @@
 		<jaxb:bindings node="//xs:complexType[@name='orcid-id']/xs:sequence/xs:choice/xs:sequence/xs:element[@name='path']">
 			<jaxb:property name="uri-path" />
 		</jaxb:bindings>
+
+		<jaxb:bindings
+			node="//xs:element[@name='year']/xs:complexType">
+			<jaxb:class name="Year" />
+			<jaxb:property>
+				<jaxb:baseType name="java.lang.String" />
+			</jaxb:property>
+		</jaxb:bindings>
+		<jaxb:bindings
+			node="//xs:element[@name='month']/xs:complexType">
+			<jaxb:class name="Month" />
+			<jaxb:property>
+				<jaxb:baseType name="java.lang.String" />
+			</jaxb:property>
+		</jaxb:bindings>
+		<jaxb:bindings
+			node="//xs:element[@name='day']/xs:complexType">
+			<jaxb:class name="Day" />
+			<jaxb:property>
+				<jaxb:baseType name="java.lang.String" />
+			</jaxb:property>
+		</jaxb:bindings>
 	</jaxb:bindings>
 
 	<jaxb:bindings schemaLocation="../xsd/record_3.0/address-3.0.xsd" node="/xs:schema">
