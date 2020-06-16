@@ -113,6 +113,22 @@
             </activation>
             <build>
                 <plugins>
+                    <!-- Configure Nexus plugin for new releases via Sonatype.
+                       See: http://central.sonatype.org/pages/apache-maven.html -->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <!-- In your settings.xml, your username/password
+                                 MUST be specified for server 'ossrh' -->
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <!-- Require manual verification / release to Maven Central -->
+                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
                     <!-- For new releases, generate JavaDocs -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -128,6 +144,22 @@
                                 <configuration>
                                     <additionalparam>${javadoc.opts}</additionalparam>
                                 </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Sign any new releases via GPG.
+                         NOTE: you may optionall specify the "gpg.passphrase" in your settings.xml -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -164,7 +196,7 @@
                 <configuration>
                     <!-- During release:perform, enable the "release" profile (see above) -->
                     <releaseProfiles>release</releaseProfiles>
-                     <goals>clean deploy</goals>
+                     <goals>deploy</goals>
                      <!-- Suggest tagging the release in SCM as "dspace-[version]" -->
                      <tagNameFormat>orcid-jaxb-api-@{project.version}</tagNameFormat>
                 </configuration>
@@ -209,7 +241,7 @@
 			<name>Francesco Pio Scognamiglio</name>
 			<email>francescopio.scognamiglio@4science.it</email>
 			<timezone>GMT +1</timezone>
-		</developer>		        
+		</developer>
     </developers>
 
     <!-- ORCID XSDs are released under MIT License. This source is generated from them, so we inherit license -->
@@ -223,33 +255,23 @@
     </licenses>
 
     <!-- Information about the SCM repository where source code exists. -->
-	<scm>
-      <connection>scm:git:https://bitbucket.org/4Science/orcid-jaxb-api.git</connection>
-      <developerConnection>scm:git:https://bitbucket.org/4Science/orcid-jaxb-api.git</developerConnection>
-      <url>https://bitbucket.org/4Science/orcid-jaxb-api.git</url>
-      <tag>HEAD</tag>
-    </scm>    
+    <scm>
+        <connection>scm:git:git@github.com:DSpace/orcid-jaxb-api.git</connection>
+        <developerConnection>scm:git:git@github.com:DSpace/orcid-jaxb-api.git</developerConnection>
+        <url>git@github.com:DSpace/orcid-jaxb-api.git</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <!-- Configure our release repositories to use Sonatype.
          See: http://central.sonatype.org/pages/apache-maven.html -->
-	<distributionManagement>
-		<repository>
-			<id>4science-nexus</id>
-			<name>4Science Public Releases</name>
-			<url>https://nexus.4science.it/repository/maven-releases/</url>
-		</repository>
-    	<snapshotRepository>
-        	<id>4science-snapshot</id>
-        	<name>4Science Public Snapshot</name>
-        	<url>https://nexus.4science.it/repository/maven-snapshots/</url>
-    	</snapshotRepository>
-	</distributionManagement>
-
-   <repositories>
-       <repository>
-			<id>4science-repo</id>
-			<name>4Science Maven Repository</name>
-			<url>https://nexus.4science.it/repository/maven-public/</url>
-		</repository>
-   </repositories>	
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>
