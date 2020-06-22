@@ -4,7 +4,7 @@
 
     <groupId>org.dspace</groupId>
     <artifactId>orcid-jaxb-api</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.0-SNAPSHOT</version>
 
     <name>ORCID Java API generated via JAXB</name>
     <description>
@@ -42,7 +42,7 @@
                             <!-- Generate a file header with timestamp -->
                             <noFileHeader>false</noFileHeader>
                             <!-- Delete generateDirectory before recreating -->
-                            <removeOldOutput>false</removeOldOutput>
+                            <removeOldOutput>true</removeOldOutput>
                             <!-- Add @Generated annotation to all generated source code -->
                             <markGenerated>true</markGenerated>
                             <!-- NOTE that we are generating directly into Java Source Directory! -->
@@ -65,13 +65,13 @@
                                 <arg>-Xnamespace-prefix</arg>
                                 <arg>-Xannotate</arg>
                             </args>
-							<plugins>
-								<plugin>
-									<groupId>org.jvnet.jaxb2_commons</groupId>
-									<artifactId>jaxb2-basics-annotate</artifactId>
-									<version>1.1.0</version>								
-								</plugin>
-							</plugins>                            
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics-annotate</artifactId>
+                                    <version>1.1.0</version>
+                                </plugin>
+                            </plugins>
                         </configuration>
                         <dependencies>
                             <dependency>
@@ -202,13 +202,13 @@
                 </configuration>
             </plugin>
             <plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-		  </plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -240,16 +240,6 @@
              <role>developer</role>
            </roles>
         </developer>
-		<developer>
-			<name>Luigi Andrea Pascarelli</name>
-			<email>luigiandrea.pascarelli@4science.it</email>
-			<timezone>GMT +1</timezone>
-		</developer>
-		<developer>
-			<name>Francesco Pio Scognamiglio</name>
-			<email>francescopio.scognamiglio@4science.it</email>
-			<timezone>GMT +1</timezone>
-		</developer>
     </developers>
 
     <!-- ORCID XSDs are released under MIT License. This source is generated from them, so we inherit license -->
