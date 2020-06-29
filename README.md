@@ -25,10 +25,10 @@ The below will regenerate/update the ORCID Java API stored in the `src/main/java
 3. Copy the necessary ORCID XSD folders into this repo's `src/main/resources/xsd/` folder. Check the POM `<schemaIncludes>` list for the XSDs we need.
   _Be sure not to overwrite the `.gitignore` already in the "empty" `xsd` folder, as we do NOT want to keep the XSDs in this repo!_
    ```
-   # Copy over common_2.1 XSDs
+   # Copy over common XSDs
    cp -r [ORCID-model]/src/main/resources/common_3.0 [orcid-jaxb-api]/src/main/resources/xsd/
    
-   # Copy over record_2.1 XSDs
+   # Copy over record XSDs
    cp -r [ORCID-model]/src/main/resources/record_3.0 [orcid-jaxb-api]/src/main/resources/xsd/
    ```
 4. Build project (with profile `generate-sources-from-jaxb` enabled)
@@ -38,7 +38,7 @@ The below will regenerate/update the ORCID Java API stored in the `src/main/java
    # WARNING This next line overwrites Java source in ./src/main/java/
    mvn -U clean package -Pgenerate-sources-from-jaxb
    ```
-5. Double check the source code generated. If any class names or package names need to be updated, you may need to modify our custom [`orcid-2.1.xjb`](https://github.com/DSpace/orcid-jaxb-api/blob/master/src/main/resources/binding/orcid-2.1.xjb), as this is the JAXB Binding file used in the code generation process.
+5. Double check the source code generated. If any class names or package names need to be updated, you may need to modify our custom [`orcid-3.0.xjb`](https://github.com/DSpace/orcid-jaxb-api/blob/master/src/main/resources/binding/orcid-3.0.xjb), as this is the JAXB Binding file used in the code generation process.
     1. Keep an eye out especially for any source code generated under an `ns` package path, as this means a specific XSD was not assigned a package name.
 6. If everything looks good, create a PR, noting which version of the ORCID XSDs you used to update the Java source code (e.g. either a specific release number or `master` of a given date)
    
