@@ -38,9 +38,9 @@ The below will regenerate/update the ORCID Java API stored in the `src/main/java
    # WARNING This next line overwrites Java source in ./src/main/java/
    mvn -U clean package -Pgenerate-sources-from-jaxb
    ```
-5. Double check the source code generated. If any class names or package names need to be updated, you may need to modify our custom [`orcid-3.0.xjb`](https://github.com/DSpace/orcid-jaxb-api/blob/master/src/main/resources/binding/orcid-3.0.xjb), as this is the JAXB Binding file used in the code generation process.
+5. Double check the source code generated. If any class names or package names need to be updated, you may need to modify our custom [`orcid-3.0.xjb`](https://github.com/DSpace/orcid-jaxb-api/blob/main/src/main/resources/binding/orcid-3.0.xjb), as this is the JAXB Binding file used in the code generation process.
     1. Keep an eye out especially for any source code generated under an `ns` package path, as this means a specific XSD was not assigned a package name.
-6. If everything looks good, create a PR, noting which version of the ORCID XSDs you used to update the Java source code (e.g. either a specific release number or `master` of a given date)
+6. If everything looks good, create a PR, noting which version of the ORCID XSDs you used to update the Java source code (e.g. either a specific release number or `main` branch of a given date)
    
 ## Build Project
 
@@ -55,4 +55,4 @@ The result will be a `./target/orcid-jaxb-api-[version].jar`
 
 ## License
 
-The project retains the [ORCID MIT-Style license](https://github.com/DSpace/orcid-jaxb-api/blob/master/LICENSE), as all code within it is automatically generated from ORCID's XSDs.
+The project retains the [ORCID MIT-Style license](https://github.com/DSpace/orcid-jaxb-api/blob/main/LICENSE), as all code within it is automatically generated from ORCID's XSDs.
